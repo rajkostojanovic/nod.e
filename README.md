@@ -1,9 +1,35 @@
+
 # nod.e
 
-**A personal web-studio project.**
+A responsive web-studio portfolio and lead-capture website built with HTML, CSS, JavaScript, Node.js, and Express.
 
-nod.e is an independent software project centered on a web studio, bringing together an interest in the web and hands-on application development.
+## Overview
 
-## Documentation
+nod.e combines visual design with backend functionality, demonstrating full-stack web development through a creative portfolio website.
 
-This repository is the home for the project. Setup instructions, usage examples, and screenshots can be added here as the documentation develops.
+## Features
+
+- Responsive website layout
+- Animated landing page
+- Contact and newsletter forms
+- Express API endpoints for lead capture
+- Local JSON data persistence
+- Static file serving and health-check endpoint
+- Checkout interface placeholder
+
+## Technologies
+
+- HTML5 and CSS3
+- JavaScript
+- Node.js
+- Express
+- JSON
+
+## Development Status
+
+Independent portfolio project and functional prototype. The checkout interface is a placeholder and does not process payments.
+
+## Author
+
+Rajko Stojanovic  
+IT Engineer and Independent Developer
