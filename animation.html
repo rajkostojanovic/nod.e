@@ -1,0 +1,289 @@
+<div class="nod-loader-shell">
+<style>
+  .nod-loader-shell {
+    --cycle: 3000ms;
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #7299cd;
+  }
+
+  .nod-loader {
+    width: min(78vw, 760px);
+  }
+
+  .nod-lockup {
+    width: 100%;
+    display: block;
+  }
+
+  .about-credit {
+    position: absolute;
+    bottom: 16px;
+    left: clamp(24px, 6vw, 80px);
+    margin: 0;
+    font-family: 'Neue Haas Grotesk', 'Helvetica Now', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: rgba(7, 19, 33, 0.68);
+  }
+
+  .nod-static {
+    clip-path: url(#nod-static-clip);
+  }
+
+  .nod-symbol-fragment {
+    opacity: 0;
+    mask: url(#nod-symbol-ink-mask);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation-duration: var(--cycle);
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nod-symbol-blue-field {
+    fill: #7299cd;
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: nod-symbol-blue-field var(--cycle) cubic-bezier(0.16, 1, 0.3, 1) infinite both;
+  }
+
+  .nod-symbol-field {
+    clip-path: url(#nod-symbol-field-clip);
+    mask: url(#nod-symbol-ink-mask);
+    opacity: 0;
+    animation: nod-symbol-field var(--cycle) cubic-bezier(0.16, 1, 0.3, 1) infinite both;
+  }
+
+  .nod-fragment-top {
+    clip-path: url(#nod-fragment-top-clip);
+    animation-name: nod-fragment-top;
+  }
+
+  .nod-fragment-right {
+    clip-path: url(#nod-fragment-right-clip);
+    animation-name: nod-fragment-right;
+  }
+
+  .nod-fragment-inner {
+    clip-path: url(#nod-fragment-inner-clip);
+    animation-name: nod-fragment-inner;
+  }
+
+  .nod-fragment-left {
+    clip-path: url(#nod-fragment-left-clip);
+    animation-name: nod-fragment-left;
+  }
+
+  .nod-fragment-base {
+    clip-path: url(#nod-fragment-base-clip);
+    animation-name: nod-fragment-base;
+  }
+
+  @keyframes nod-fragment-top {
+    0%,
+    24% {
+      opacity: 0;
+      transform: translate(-10px, 8px) scale(0.982);
+    }
+    54%,
+    86% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+    97%,
+    100% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  @keyframes nod-fragment-right {
+    0%,
+    30% {
+      opacity: 0;
+      transform: translate(-12px, -5px) scale(0.984);
+    }
+    60%,
+    86% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+    97%,
+    100% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  @keyframes nod-fragment-inner {
+    0%,
+    36% {
+      opacity: 0;
+      transform: translate(10px, -7px) scale(0.986);
+    }
+    66%,
+    86% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+    97%,
+    100% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  @keyframes nod-fragment-left {
+    0%,
+    42% {
+      opacity: 0;
+      transform: translate(9px, -9px) scale(0.988);
+    }
+    70%,
+    86% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+    97%,
+    100% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  @keyframes nod-fragment-base {
+    0%,
+    48% {
+      opacity: 0;
+      transform: translate(-8px, -11px) scale(0.988);
+    }
+    74%,
+    86% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+    97%,
+    100% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  @keyframes nod-symbol-blue-field {
+    0% {
+      opacity: 0;
+      transform: scale(0.965);
+    }
+    16%,
+    88% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    97%,
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes nod-symbol-field {
+    0%,
+    72% {
+      opacity: 0;
+    }
+    82%,
+    88% {
+      opacity: 1;
+    }
+    97%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .nod-loader-shell {
+      min-height: 240px;
+    }
+
+    .nod-loader {
+      width: min(88vw, 560px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nod-symbol-blue-field,
+    .nod-symbol-fragment,
+    .nod-symbol-field {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+<div class="nod-loader" role="status" aria-label="nod.e loading">
+  <svg class="nod-lockup" viewBox="120 735 2320 780" aria-hidden="true">
+    <defs>
+      <filter id="nod-symbol-ink-filter" color-interpolation-filters="sRGB">
+        <feColorMatrix type="saturate" values="0" />
+        <feComponentTransfer>
+          <feFuncR type="linear" slope="8" intercept="-0.12" />
+          <feFuncG type="linear" slope="8" intercept="-0.12" />
+          <feFuncB type="linear" slope="8" intercept="-0.12" />
+        </feComponentTransfer>
+      </filter>
+
+      <mask id="nod-symbol-ink-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="2481" height="2481" mask-type="luminance">
+        <rect x="0" y="0" width="2481" height="2481" fill="#000" />
+        <image href="images/logo.png" x="0" y="0" width="2481" height="2481" filter="url(#nod-symbol-ink-filter)" />
+      </mask>
+
+      <clipPath id="nod-static-clip">
+        <rect x="0" y="0" width="1812" height="2481" />
+      </clipPath>
+
+      <clipPath id="nod-fragment-top-clip">
+        <path d="M1812 795 H2394 V1030 L2164 972 L1812 1130 Z" />
+      </clipPath>
+
+      <clipPath id="nod-fragment-right-clip">
+        <path d="M2136 880 H2394 V1188 L2048 1378 L1928 1268 L2296 1010 L2136 956 Z" />
+      </clipPath>
+
+      <clipPath id="nod-fragment-inner-clip">
+        <path d="M1812 1032 H2240 V1288 L1812 1342 Z" />
+      </clipPath>
+
+      <clipPath id="nod-fragment-left-clip">
+        <path d="M1812 892 L1998 1024 L1920 1446 H1812 Z" />
+      </clipPath>
+
+      <clipPath id="nod-fragment-base-clip">
+        <path d="M1812 1238 L2230 1318 V1446 H1812 Z" />
+      </clipPath>
+
+      <clipPath id="nod-symbol-field-clip">
+        <path d="M1812 895 L2030 795 H2204 L2394 902 V1138 L2170 1316 L2226 1446 H2030 L1812 1352 Z" />
+      </clipPath>
+    </defs>
+
+    <image class="nod-static" href="images/logo.png" x="0" y="0" width="2481" height="2481" />
+    <path class="nod-symbol-blue-field" d="M1812 895 L2030 795 H2204 L2394 902 V1138 L2170 1316 L2226 1446 H2030 L1812 1352 Z" />
+    <image class="nod-symbol-fragment nod-fragment-top" href="images/logo.png" x="0" y="0" width="2481" height="2481" />
+    <image class="nod-symbol-fragment nod-fragment-right" href="images/logo.png" x="0" y="0" width="2481" height="2481" />
+    <image class="nod-symbol-fragment nod-fragment-inner" href="images/logo.png" x="0" y="0" width="2481" height="2481" />
+    <image class="nod-symbol-fragment nod-fragment-left" href="images/logo.png" x="0" y="0" width="2481" height="2481" />
+    <image class="nod-symbol-fragment nod-fragment-base" href="images/logo.png" x="0" y="0" width="2481" height="2481" />
+    <image class="nod-symbol-field" href="images/logo.png" x="0" y="0" width="2481" height="2481" />
+  </svg>
+</div>
+<p class="about-credit">© Рајко Стојановић</p>
+</div>

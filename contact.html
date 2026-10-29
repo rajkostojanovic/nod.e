@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>nod.e | contact</title>
+    <link rel="icon" href="images/logo-blue.png" />
+    <link rel="stylesheet" href="styles.css?v=top-ribbon-1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="page about-page">
+    <main class="about-split">
+      <section class="about-left">
+        <a class="logo-link" href="index.html" aria-label="Return to index">
+          <img class="logo" src="images/logo-e.png" alt="nod.e logo" />
+        </a>
+        <p class="statement">
+          I do not manufacture webpages.
+          <br />
+          I make them with keyboard and brush.
+          <br />
+          Each one reflects your bussiness - truthfully.
+        </p>
+      </section>
+      <section class="about-right">
+        <form class="simple-form contact-card" method="post" action="/api/lead">
+          <label>
+            sender
+            <input type="text" name="sender" required />
+          </label>
+          <label>
+            email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit">send</button>
+        </form>
+      </section>
+    </main>
+    <p class="about-credit">© Рајко Стојановић</p>
+  </body>
+</html>
